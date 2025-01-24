@@ -334,9 +334,11 @@ class ObserverWidgetState<
                 );
               });
             } else {
-              handleContexts(
-                isIgnoreInnerCanHandleObserve: isIgnoreInnerCanHandleObserve,
-              );
+              WidgetsBinding.instance.addPostFrameCallback((_) {
+                handleContexts(
+                  isIgnoreInnerCanHandleObserve: isIgnoreInnerCanHandleObserve,
+                );
+              });
             }
           }
           return false;
