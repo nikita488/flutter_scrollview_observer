@@ -248,7 +248,9 @@ class MixViewObserverState extends ObserverWidgetState<SliverObserverController,
         isForbidObserveViewportCallback ? null : widget.onObserveViewport;
     if (isDependObserveCallback &&
         onObserveViewport == null &&
-        (innerSliverListeners?.isEmpty ?? true)) return null;
+        (innerSliverListeners?.isEmpty ?? true)) {
+      return null;
+    }
 
     final isHandlingScroll =
         widget.sliverController?.innerIsHandlingScroll ?? false;
@@ -293,7 +295,9 @@ class MixViewObserverState extends ObserverWidgetState<SliverObserverController,
     }
 
     if (targetChild == null ||
-        !ObserverUtils.isValidListIndex(indexOfTargetChild)) return null;
+        !ObserverUtils.isValidListIndex(indexOfTargetChild)) {
+      return null;
+    }
     final targetCtx = ctxs[indexOfTargetChild];
     final firstChild = SliverViewportObserveDisplayingChildModel(
       sliverContext: targetCtx,
@@ -313,7 +317,9 @@ class MixViewObserverState extends ObserverWidgetState<SliverObserverController,
         sliver: targetChild,
         viewportPixels: startCalcPixels,
         viewportBottomOffset: viewportBottomOffset,
-      )) break;
+      )) {
+        break;
+      }
 
       indexOfTargetChild = objList.indexOf(targetChild);
       if (ObserverUtils.isValidListIndex(indexOfTargetChild)) {
