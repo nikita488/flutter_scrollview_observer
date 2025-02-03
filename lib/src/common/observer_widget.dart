@@ -317,7 +317,7 @@ class ObserverWidgetState<
               .contains(notification.runtimeType)) {
             final isIgnoreInnerCanHandleObserve =
                 ScrollUpdateNotification != notification.runtimeType;
-            WidgetsBinding.instance.endOfFrame.then((_) {
+            WidgetsBinding.instance.addPostFrameCallback((_) {
               // Need to wait for frame end to avoid inaccurate observation
               // result, reasons as follows
               //
